@@ -1,9 +1,12 @@
 import type {
   NativeImporterAdapter,
   NativeImporterAdapterImportResult,
+  NativeImportLanguageProfile,
   SemanticImportSidecar,
   SemanticImportSidecarOptions,
-  SwiftSyntaxNativeImporterAdapterOptions
+  SwiftSyntaxNativeImporterAdapterOptions,
+  UniversalCapabilityMatrix,
+  UniversalCapabilityMatrixOptions
 } from '@shapeshift-labs/frontier-lang-compiler';
 
 export declare const SwiftSourceLanguage: 'swift';
@@ -13,16 +16,17 @@ export declare const SwiftSupportedExtensions: readonly string[];
 
 export interface SwiftLanguagePackageMetadata {
   readonly packageName: '@shapeshift-labs/frontier-lang-swift';
-  readonly version: '0.1.0';
+  readonly version: '0.1.1';
   readonly sourceLanguage: 'swift';
   readonly parser: 'swift-syntax';
   readonly parserAstFormat: 'swift-syntax';
   readonly supportedExtensions: readonly string[];
   readonly compilerPackage: '@shapeshift-labs/frontier-lang-compiler';
-  readonly compilerVersion: '0.2.32';
+  readonly compilerVersion: '0.2.39';
 }
 
 export declare const SwiftLanguagePackage: SwiftLanguagePackageMetadata;
+export declare const SwiftCapabilityLanguageProfiles: readonly NativeImportLanguageProfile[];
 
 export { createSwiftSyntaxNativeImporterAdapter } from '@shapeshift-labs/frontier-lang-compiler';
 
@@ -62,6 +66,11 @@ export interface SwiftSemanticImportSidecarOptions extends SwiftSourceImportOpti
   readonly regionPrefix?: string;
 }
 
+export interface SwiftLanguageCapabilityMatrixOptions extends UniversalCapabilityMatrixOptions {
+  readonly importerOptions?: SwiftSyntaxNativeImporterAdapterOptions;
+}
+
 export declare function createSwiftNativeImporterAdapter(options?: SwiftSyntaxNativeImporterAdapterOptions): NativeImporterAdapter;
+export declare function createSwiftLanguageCapabilityMatrix(options?: SwiftLanguageCapabilityMatrixOptions): UniversalCapabilityMatrix;
 export declare function importSwiftSource(input?: SwiftSourceImportInput, options?: SwiftSourceImportOptions): Promise<NativeImporterAdapterImportResult>;
 export declare function createSwiftSemanticImportSidecar(input?: SwiftSourceImportInput, options?: SwiftSemanticImportSidecarOptions): Promise<SemanticImportSidecar>;

@@ -1,6 +1,8 @@
 import {
+  NativeImportLanguageProfiles,
   createSemanticImportSidecar,
   createSwiftSyntaxNativeImporterAdapter,
+  createUniversalCapabilityMatrix,
   runNativeImporterAdapter
 } from '@shapeshift-labs/frontier-lang-compiler';
 
@@ -11,19 +13,29 @@ export const SwiftSupportedExtensions = Object.freeze(['.swift']);
 
 export const SwiftLanguagePackage = Object.freeze({
   packageName: '@shapeshift-labs/frontier-lang-swift',
-  version: '0.1.0',
+  version: '0.1.1',
   sourceLanguage: SwiftSourceLanguage,
   parser: SwiftParser,
   parserAstFormat: SwiftParserAstFormat,
   supportedExtensions: SwiftSupportedExtensions,
   compilerPackage: '@shapeshift-labs/frontier-lang-compiler',
-  compilerVersion: '0.2.32'
+  compilerVersion: '0.2.39'
 });
+
+export const SwiftCapabilityLanguageProfiles = Object.freeze(
+  NativeImportLanguageProfiles.filter((profile) => profile.language === SwiftSourceLanguage)
+);
 
 export { createSwiftSyntaxNativeImporterAdapter } from '@shapeshift-labs/frontier-lang-compiler';
 
 export function createSwiftNativeImporterAdapter(options = {}) {
   return createSwiftSyntaxNativeImporterAdapter(options);
+}
+
+export function createSwiftLanguageCapabilityMatrix(options = {}) {
+  const languages = options.languages ?? SwiftCapabilityLanguageProfiles;
+  const adapters = options.adapters ?? [createSwiftNativeImporterAdapter(options.importerOptions ?? {})];
+  return createUniversalCapabilityMatrix({ ...options, languages, adapters });
 }
 
 function mergeAdapterOptions(input = {}, options = {}) {
