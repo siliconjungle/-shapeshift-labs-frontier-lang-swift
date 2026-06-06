@@ -36,7 +36,8 @@ const ast = {
 const adapter = createSwiftNativeImporterAdapter();
 assert.equal(adapter.language, SwiftSourceLanguage);
 assert.equal(SwiftLanguagePackage.parserAstFormat, SwiftParserAstFormat);
-assert.equal(SwiftLanguagePackage.compilerVersion, '0.2.42');
+assert.equal(SwiftLanguagePackage.version, '0.1.6');
+assert.equal(SwiftLanguagePackage.compilerVersion, '0.2.47');
 
 const imported = await importSwiftSource({
   sourcePath: 'Sources/Todo.swift',
