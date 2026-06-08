@@ -16,13 +16,13 @@ export declare const SwiftSupportedExtensions: readonly string[];
 
 export interface SwiftLanguagePackageMetadata {
   readonly packageName: '@shapeshift-labs/frontier-lang-swift';
-  readonly version: '0.1.12';
+  readonly version: '0.1.13';
   readonly sourceLanguage: 'swift';
   readonly parser: 'swift-syntax';
   readonly parserAstFormat: 'swift-syntax';
   readonly supportedExtensions: readonly string[];
   readonly compilerPackage: '@shapeshift-labs/frontier-lang-compiler';
-  readonly compilerVersion: '0.2.70';
+  readonly compilerVersion: '0.2.71';
 }
 
 export declare const SwiftLanguagePackage: SwiftLanguagePackageMetadata;
