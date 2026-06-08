@@ -16,7 +16,7 @@ export declare const SwiftSupportedExtensions: readonly string[];
 
 export interface SwiftLanguagePackageMetadata {
   readonly packageName: '@shapeshift-labs/frontier-lang-swift';
-  readonly version: '0.1.7';
+  readonly version: '0.1.8';
   readonly sourceLanguage: 'swift';
   readonly parser: 'swift-syntax';
   readonly parserAstFormat: 'swift-syntax';
