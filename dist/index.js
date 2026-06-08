@@ -13,13 +13,13 @@ export const SwiftSupportedExtensions = Object.freeze(['.swift']);
 
 export const SwiftLanguagePackage = Object.freeze({
   packageName: '@shapeshift-labs/frontier-lang-swift',
-  version: '0.1.12',
+  version: '0.1.13',
   sourceLanguage: SwiftSourceLanguage,
   parser: SwiftParser,
   parserAstFormat: SwiftParserAstFormat,
   supportedExtensions: SwiftSupportedExtensions,
   compilerPackage: '@shapeshift-labs/frontier-lang-compiler',
-  compilerVersion: '0.2.70'
+  compilerVersion: '0.2.71'
 });
 
 export const SwiftCapabilityLanguageProfiles = Object.freeze(
